@@ -36,7 +36,7 @@ def gainAccess():
         print("Error please explicitly type yes or no for answer");
         gainAccess()
 
-    userInfo={'Name':firstName+lastName,'Email':email}
+    userInfo = {'Name':firstName+" "+lastName,'Email':email}
 
     print("Welcome, next you will create a username /n")
     time.sleep(5)
@@ -47,9 +47,10 @@ def gainAccess():
     time.sleep(5)
 
     password = input("Please enter your password")
+    userInfo.update({'userName':userName,'password': password})
 
-    userInfo{userName}= userName
-    userInfo{password}= password
+
+
 
 
 
