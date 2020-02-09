@@ -23,9 +23,12 @@ def gainAccess():
     global firstName
     global lastName
     global email
+    global userName
+    global password
+
 
     answer = str.casefold(input("Would you like to create an account? (Type yes or no)"))
-    if answer == "yes" :
+    if answer == "yes":
         firstName= input("What is your First Name?")
         lastName= input("What is you Last Name")
         email= input("Please enter your Email Address ")
@@ -36,7 +39,7 @@ def gainAccess():
         print("Error please explicitly type yes or no for answer");
         gainAccess()
 
-    userInfo = {'Name':firstName+" "+lastName,'Email':email}
+    userInfo = {'Name':firstName+" "+lastName, 'Email':email}
 
     print("Welcome, next you will create a username /n")
     time.sleep(5)
@@ -47,10 +50,34 @@ def gainAccess():
     time.sleep(5)
 
     password = input("Please enter your password")
-    userInfo.update({'userName':userName,'password': password})
-
-
-
-
-
+    userInfo.update({'userName': userName, 'password': password})
+    print("Congratulations you have successfully created an Account!")
+    answer = str.casefold(input("Would you like to log in now?"))
+    if answer == "yes":
+        Login()
+    elif answer == "no":
+        print("See you next time!")
+        breakpoint()
+    else:
+        print("Invalid input, yes or no must be explicitly typed")
+        Login()
+def Login():
+    global userInfo
+    i = 0
+    username = str.casefold(input("Please enter username"))
+    if username == userName:
+        time.sleep(5)
+        Password = input("Please enter password ")
+        if Password == password:
+            time.sleep(5)
+            print("Access Granted")
+        else:
+            print("Incorrect Password Entered")
+            if i<3:
+                i+=1
+                if i==2:
+                    print("Last Try")
+                    Login()
+                else:
+                    print("Access Denied")
 
